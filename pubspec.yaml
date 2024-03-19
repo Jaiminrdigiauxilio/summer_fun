@@ -24,6 +24,7 @@ dependencies:
   url_launcher: ^6.2.4
   flutter_tts: ^3.8.5
   flutter_animate: ^4.5.0
+  flutter_svg: ^2.0.9
 
 
 
@@ -54,9 +55,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: ComicKids
+    - family: PlaypenSans
       fonts:
-        - asset: assets/fonts/ComicKids.otf
+#        - asset: assets/fonts/ComicKids.otf
+        - asset: assets/fonts/PlaypenSans.ttf
 
   #   - family: Trajan Pro
   #     fonts:
