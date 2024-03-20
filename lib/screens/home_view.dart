@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:summer_fun/screens/keyboard_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -9,14 +10,18 @@ class HomeView extends StatelessWidget {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Stack(
           children: [
             Container(
               width: w,
-              child: Image.asset(
-                "assets/bg/app_bg.png",
-                fit: BoxFit.cover,
+              child: Opacity(
+                opacity: 0.5,
+                child: Image.asset(
+                  "assets/bg/app_bg.png",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
 
@@ -33,6 +38,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => KeyboardView(),));
                   // navigateTo(context, const SavedScreen());
                 },
               ),

@@ -41,6 +41,8 @@ flutter:
   assets:
     - assets/bg/
     - assets/icons/
+    - assets/icons/nums/
+    - assets/icons/abc/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
