@@ -57,26 +57,26 @@ class _KeyboardViewState extends State<KeyboardView> {
                   ),
                 ),
                 width: w,
-                height: h * 0.70,
+                height: h * 0.60,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        keysWidget("assets/icons/nums/0.svg"),
-                        keysWidget("assets/icons/nums/1.svg"),
-                        keysWidget("assets/icons/nums/2.svg"),
-                        keysWidget("assets/icons/nums/3.svg"),
-                        keysWidget("assets/icons/nums/4.svg"),
-                        keysWidget("assets/icons/nums/5.svg"),
-                        keysWidget("assets/icons/nums/6.svg"),
-                        keysWidget("assets/icons/nums/7.svg"),
-                        keysWidget("assets/icons/nums/8.svg"),
-                        keysWidget("assets/icons/nums/9.svg"),
-                      ],
-                    ),
+                    // Row(
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                    //     keysWidget("assets/icons/nums/0.svg"),
+                    //     keysWidget("assets/icons/nums/1.svg"),
+                    //     keysWidget("assets/icons/nums/2.svg"),
+                    //     keysWidget("assets/icons/nums/3.svg"),
+                    //     keysWidget("assets/icons/nums/4.svg"),
+                    //     keysWidget("assets/icons/nums/5.svg"),
+                    //     keysWidget("assets/icons/nums/6.svg"),
+                    //     keysWidget("assets/icons/nums/7.svg"),
+                    //     keysWidget("assets/icons/nums/8.svg"),
+                    //     keysWidget("assets/icons/nums/9.svg"),
+                    //   ],
+                    // ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

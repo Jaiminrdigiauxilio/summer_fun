@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:summer_fun/screens/game_views/game_one.dart';
 import 'package:summer_fun/screens/keyboard_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -38,7 +39,12 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => KeyboardView(),));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => KeyboardView(),
+                    ),
+                  );
                   // navigateTo(context, const SavedScreen());
                 },
               ),
@@ -47,133 +53,99 @@ class HomeView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Spacer(flex: 2,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_1.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_1.svg",
+                        "Animals",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_2.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_2.svg",
+                        "Birds",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_3.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_3.svg",
+                        "Logos",
+                        () {},
                       ),
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: h * 0.10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 5,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_7.svg",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_9.svg",
+                        "Cartoons",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 5,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_4.svg",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_10.svg",
+                        "Fruits",
+                        () {Navigator.push(context, MaterialPageRoute(builder: (context) => GameOneView(),));},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 5,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_1.svg",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_1.svg",
+                        "Flowers",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 5,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_6.svg",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_4.svg",
+                        "insects",
+                        () {},
                       ),
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: h * 0.10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_7.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_4.svg",
+                        "Vegetables",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_8.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_7.svg",
+                        "SuperHeroes",
+                        () {},
                       ),
-                      InkWell(
-                        child: SizedBox(
-                          width: w / 3,
-                          height: h / 6,
-                          child: SvgPicture.asset(
-                            "assets/icons/btn_3.svg",
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        onTap: (){ },
+                      menuBtn(
+                        w,
+                        h,
+                        "assets/icons/btn_11.svg",
+                        "Flags",
+                        () {},
                       ),
                     ],
                   ),
+                  Spacer(),
                 ],
               ),
             ),
@@ -213,6 +185,35 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget menuBtn(double w, double h, String icon, String title,
+      VoidCallback voidCallback) {
+    return InkWell(
+      child: SizedBox(
+        width: w / 5,
+        height: h / 6,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            SvgPicture.asset(
+              icon,
+              fit: BoxFit.fitWidth,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontFamily: "PlaypenSans",
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 21,
+              ),
+            ),
+          ],
+        ),
+      ),
+      onTap: voidCallback,
     );
   }
 }
