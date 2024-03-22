@@ -1,18 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:summer_fun/screens/home_view.dart';
-import 'package:summer_fun/utilities/app_navigation.dart';
 
-class GameOneView extends StatefulWidget {
-  const GameOneView({super.key});
+import '../../utilities/app_navigation.dart';
+import '../home_view.dart';
+
+class GameThreeView extends StatefulWidget {
+  const GameThreeView({super.key});
 
   @override
-  State<GameOneView> createState() => _GameOneViewState();
+  State<GameThreeView> createState() => _GameThreeViewState();
 }
 
-class _GameOneViewState extends State<GameOneView> {
+class _GameThreeViewState extends State<GameThreeView> {
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -65,7 +64,6 @@ class _GameOneViewState extends State<GameOneView> {
               },
             ),
           ),
-          // question display
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Align(
@@ -99,33 +97,6 @@ class _GameOneViewState extends State<GameOneView> {
               ),
             ),
           ),
-          // option buttons
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    answerBtn(w,h,"Apple","assets/icons/rect_1.svg"),
-                    answerBtn(w,h,"banana","assets/icons/rect_2.svg"),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    answerBtn(w,h,"Guava","assets/icons/rect_3.svg"),
-                    answerBtn(w,h,"Grapes","assets/icons/rect_4.svg"),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          // Ad banner placeholder
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -137,49 +108,5 @@ class _GameOneViewState extends State<GameOneView> {
         ],
       ),
     );
-  }
-
-  Widget questionText(String str) {
-    return Text(
-      str,
-      style: TextStyle(
-        shadows: <Shadow>[
-          Shadow(
-            offset: Offset(2.0, 2.0),
-            blurRadius: 3.0,
-            color: Color.fromARGB(125, 0, 0, 0),
-          ),
-          Shadow(
-            offset: Offset(2.0, 2.0),
-            blurRadius: 2.0,
-            color: Color.fromARGB(125, 0, 0, 255),
-          ),
-        ],
-        fontFamily: "PlaypenSans",
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        fontSize: 21,
-      ),
-    );
-  }
-
-  Widget answerBtn(double w, double h, String str, String bg) {
-    return SizedBox(
-      width: w * 0.30,
-      height: h * 0.15,
-      child: InkWell(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            SvgPicture.asset(
-              bg,
-              fit: BoxFit.fitHeight,
-            ),
-            questionText(str),
-          ],
-        ),
-      ),
-    );
-
   }
 }

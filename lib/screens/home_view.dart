@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:summer_fun/screens/game_views/game_one.dart';
+import 'package:summer_fun/screens/game_views/level_dialog.dart';
 import 'package:summer_fun/screens/keyboard_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -38,12 +39,6 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => KeyboardView(),
-                  ),
-                );
                 // navigateTo(context, const SavedScreen());
               },
             ),
@@ -52,7 +47,9 @@ class HomeView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(flex: 2,),
+                Spacer(
+                  flex: 2,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -61,21 +58,21 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_1.svg",
                       "Animals",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_2.svg",
                       "Birds",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_3.svg",
                       "Logos",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                   ],
                 ),
@@ -90,28 +87,30 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_9.svg",
                       "Cartoons",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_10.svg",
                       "Fruits",
-                      () {Navigator.push(context, MaterialPageRoute(builder: (context) => GameOneView(),));},
+                      () {
+                        showLevelDialog(context);
+                      },
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_1.svg",
                       "Flowers",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_4.svg",
                       "insects",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                   ],
                 ),
@@ -126,21 +125,21 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_4.svg",
                       "Vegetables",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_7.svg",
                       "SuperHeroes",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_11.svg",
                       "Flags",
-                      () {},
+                      () {showLevelDialog(context);},
                     ),
                   ],
                 ),
@@ -186,6 +185,13 @@ class HomeView extends StatelessWidget {
     );
   }
 
+  void showLevelDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => LevelDialogView(),
+    );
+  }
+
   Widget menuBtn(double w, double h, String icon, String title,
       VoidCallback voidCallback) {
     return InkWell(
@@ -215,3 +221,17 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+
+// JsonData = [
+//   {
+//     "category": "Fruit",
+//     "Questions": [
+//       {"easy": "image", "option_1":"text", "option_2":"text", "option_3":"text", "option_4":"text", "correct_option":"text", },
+//       {"medium": "tex", "option_1":"image", "option_2":"image", "option_3":"image", "option_4":"image","correct_option":"image",},
+//       {"hard": "title", "option_1":"image", "option_2":"image", "option_3":"image", "option_4":"image","correct_option":"image",},
+//     ],
+//   },
+//   {...},
+//   {...},
+//   {...},
+// ];

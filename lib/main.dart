@@ -31,3 +31,44 @@ class MyApp extends StatelessWidget {
 
 
 
+
+
+// 1st
+//
+// [
+// {	image : "image",
+// option_1:" text",
+// option_2 : "text",
+// option_3 : "text",
+// option_4 : "text",
+// correct_option : "text”
+// },
+// {	image : "image",
+// option_1:" text",
+// option_2 : "text",
+// option_3 : "text",
+// option_4 : "text",
+// correct_option : "text”
+// },
+// ]
+
+// 2nd
+//
+// [
+// {	name : "Name",
+// option_1:"image1.png",
+// option_2 : "image2.png",
+// option_3 : "image3.png",
+// option_4 : "image4.png",
+// correct_option : "image2.png”
+// },
+// {	name : "Name",
+// option_1:"image1.png",
+// option_2 : "image2.png",
+// option_3 : "image3.png",
+// option_4 : "image4.png",
+// correct_option : "image2.png”
+// },
+// ]
+
+
