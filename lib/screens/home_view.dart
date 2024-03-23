@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:summer_fun/screens/game_views/game_one.dart';
+import 'package:summer_fun/screens/game_views/game_fun.dart';
 import 'package:summer_fun/screens/game_views/level_dialog.dart';
 import 'package:summer_fun/screens/keyboard_view.dart';
+import 'package:summer_fun/utilities/app_navigation.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -39,7 +40,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                // navigateTo(context, const SavedScreen());
+                AppNavigation.navigateTo(context, const KeyboardView());
               },
             ),
           ),

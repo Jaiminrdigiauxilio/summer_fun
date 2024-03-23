@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:summer_fun/screens/game_views/game_one.dart';
-import 'package:summer_fun/screens/game_views/game_three.dart';
-import 'package:summer_fun/screens/game_views/game_two.dart';
+import 'package:summer_fun/screens/game_views/game_fun.dart';
+import 'package:summer_fun/screens/game_views/game_hard.dart';
+import 'package:summer_fun/screens/game_views/game_easy.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
 
 class LevelDialogView extends StatelessWidget {
@@ -34,7 +34,7 @@ class LevelDialogView extends StatelessWidget {
                         height: 50,
                         child: InkWell(
                           onTap: () {
-                            AppNavigation.navigateTo(context, GameThreeView());
+                            AppNavigation.navigateTo(context, HardGameView());
                             debugPrint("tapped -1");
                           },
                           child: Stack(
@@ -62,7 +62,7 @@ class LevelDialogView extends StatelessWidget {
                         height: 50,
                         child: InkWell(
                           onTap: () {
-                            AppNavigation.navigateTo(context, GameOneView());
+                            AppNavigation.navigateTo(context, FunGameView());
                             debugPrint("tapped -2");
                           },
                           child: Stack(
@@ -90,7 +90,7 @@ class LevelDialogView extends StatelessWidget {
                         height: 50,
                         child: InkWell(
                           onTap: () {
-                            AppNavigation.navigateTo(context, GameTwoView());
+                            AppNavigation.navigateTo(context, EasyGameView());
                             debugPrint("tapped -3");
                           },
                           child: Stack(

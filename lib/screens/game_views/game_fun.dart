@@ -5,14 +5,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:summer_fun/screens/home_view.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
 
-class GameOneView extends StatefulWidget {
-  const GameOneView({super.key});
+class FunGameView extends StatefulWidget {
+  const FunGameView({super.key});
 
   @override
-  State<GameOneView> createState() => _GameOneViewState();
+  State<FunGameView> createState() => _FunGameViewState();
 }
 
-class _GameOneViewState extends State<GameOneView> {
+class _FunGameViewState extends State<FunGameView> {
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -77,8 +77,8 @@ class _GameOneViewState extends State<GameOneView> {
                   alignment: Alignment.center,
                   children: [
                     SizedBox(
-                      width: w * 0.50,
-                      height: h * 0.50,
+                      width: w * 0.30,
+                      height: h * 0.40,
                       child: SvgPicture.asset(
                         "assets/icons/que_bg.svg",
                         fit: BoxFit.fitHeight,
@@ -86,8 +86,8 @@ class _GameOneViewState extends State<GameOneView> {
                     ),
                     Center(
                       child: SizedBox(
-                        width: w * 0.40,
-                        height: h * 0.40,
+                        width: w * 0.30,
+                        height: h * 0.30,
                         child: SvgPicture.asset(
                           "assets/icons/apple.svg",
                           fit: BoxFit.fitHeight,
@@ -106,22 +106,33 @@ class _GameOneViewState extends State<GameOneView> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    answerBtn(w,h,"Apple","assets/icons/rect_1.svg"),
-                    answerBtn(w,h,"banana","assets/icons/rect_2.svg"),
-                  ],
+                Spacer(flex: 4,),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(flex: 2, child: answerBtn(w,h,"Apple","assets/icons/rect_1.svg")),
+                      Spacer(flex: 1,),
+                      Expanded(flex: 2, child: answerBtn(w,h,"banana","assets/icons/rect_2.svg")),
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    answerBtn(w,h,"Guava","assets/icons/rect_3.svg"),
-                    answerBtn(w,h,"Grapes","assets/icons/rect_4.svg"),
-                  ],
+
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(flex: 2, child: answerBtn(w,h,"Guava","assets/icons/rect_3.svg")),
+                      Spacer(flex: 1,),
+                      Expanded(flex: 2, child: answerBtn(w,h,"Grapes","assets/icons/rect_4.svg")),
+                    ],
+                  ),
                 ),
+                Spacer(flex: 2,),
               ],
             ),
           ),
@@ -165,7 +176,7 @@ class _GameOneViewState extends State<GameOneView> {
 
   Widget answerBtn(double w, double h, String str, String bg) {
     return SizedBox(
-      width: w * 0.30,
+      width: w * 0.25,
       height: h * 0.15,
       child: InkWell(
         child: Stack(
@@ -180,6 +191,6 @@ class _GameOneViewState extends State<GameOneView> {
         ),
       ),
     );
-
   }
+
 }
