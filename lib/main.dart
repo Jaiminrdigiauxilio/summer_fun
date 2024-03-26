@@ -12,11 +12,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.immersiveSticky,
+      overlays: [],
+    );
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return MaterialApp(
       title: 'Summer Fun',
       debugShowCheckedModeBanner: false,
@@ -28,10 +31,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
 
 // 1st
 //
@@ -70,5 +69,3 @@ class MyApp extends StatelessWidget {
 // correct_option : "image2.png”
 // },
 // ]
-
-

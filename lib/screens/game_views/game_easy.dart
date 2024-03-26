@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:summer_fun/screens/game_views/check_answer_view.dart';
+import 'package:summer_fun/screens/home_view.dart';
+import 'package:summer_fun/utilities/app_navigation.dart';
 
-import '../../utilities/app_navigation.dart';
-import '../home_view.dart';
-
+//    Easy Game
 class EasyGameView extends StatefulWidget {
   const EasyGameView({super.key});
 
@@ -13,6 +15,8 @@ class EasyGameView extends StatefulWidget {
 }
 
 class _EasyGameViewState extends State<EasyGameView> {
+  bool isAnswerSelected = false;
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -65,48 +69,150 @@ class _EasyGameViewState extends State<EasyGameView> {
               },
             ),
           ),
+          Positioned(
+            top: h * 0.40,
+            right: 10,
+            child: isAnswerSelected
+                ? InkWell(
+                    child: SizedBox(
+                      width: 60,
+                      height: 60,
+                      child: Image.asset(
+                        "assets/icons/next_icon.png",
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    onTap: () {
+                      // AppNavigation.navigateBack(context);
+                    },
+                  )
+                : Opacity(
+                    opacity: 0.2,
+                    child: SizedBox(
+                      width: 60,
+                      height: 60,
+                      child: Image.asset(
+                        "assets/icons/next_icon.png",
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                  ),
+          ),
+          // question display
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.topCenter,
-              child: queBox(w, h, "Apple", "assets/icons/abg_3.png"),
+              child: SizedBox(
+                width: w * 0.50,
+                height: h * 0.60,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: w * 0.30,
+                      height: h * 0.40,
+                      child: SvgPicture.asset(
+                        "assets/icons/que_bg.svg",
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    Center(
+                      child: SizedBox(
+                        width: w * 0.30,
+                        height: h * 0.30,
+                        child: SvgPicture.asset(
+                          "assets/icons/apple.svg",
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
-
+          // option buttons
           Align(
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             child: Column(
-
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Spacer(flex: 1,),
+                Spacer(
+                  flex: 4,
+                ),
                 Expanded(
                   flex: 2,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      answerCard("", "assets/icons/abg_1.png",
-                        "assets/icons/lemon.svg", w, h,),
-                      answerCard("", "assets/icons/abg_2.png",
-                        "assets/icons/corn.svg", w, h,),
+                      Expanded(
+                        flex: 2,
+                        child: answerBtn(
+                          w,
+                          h,
+                          "Apple",
+                          "assets/icons/rect_1.svg",
+                          true,
+                        ),
+                      ),
+                      Spacer(
+                        flex: 1,
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: answerBtn(
+                          w,
+                          h,
+                          "banana",
+                          "assets/icons/rect_2.svg",
+                          false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
                 Expanded(
                   flex: 2,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      answerCard("", "assets/icons/abg_3.png",
-                        "assets/icons/apple.svg", w, h,),
-                      answerCard("", "assets/icons/abg_4.png",
-                        "assets/icons/lemon.svg", w, h,),
+                      Expanded(
+                        flex: 2,
+                        child: answerBtn(
+                          w,
+                          h,
+                          "Guava",
+                          "assets/icons/rect_3.svg",
+                          false,
+                        ),
+                      ),
+                      Spacer(
+                        flex: 1,
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: answerBtn(
+                          w,
+                          h,
+                          "Grapes",
+                          "assets/icons/rect_4.svg",
+                          false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                Spacer(flex: 1,),
+                Spacer(
+                  flex: 2,
+                ),
               ],
             ),
           ),
-
+          // Ad banner placeholder
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -133,74 +239,41 @@ class _EasyGameViewState extends State<EasyGameView> {
           Shadow(
             offset: Offset(2.0, 2.0),
             blurRadius: 2.0,
-            color: Color.fromARGB(125, 0, 0, 255),
+            color: Color.fromARGB(125, 24, 24, 24),
           ),
         ],
         fontFamily: "PlaypenSans",
         fontWeight: FontWeight.bold,
         color: Colors.black,
-        fontSize: 24,
+        fontSize: 21,
       ),
     );
   }
 
-
-  Widget queBox(double w, double h, String str, String bg) {
-    return SizedBox(
-      width: w * 0.50,
-      height: h * 0.15,
-      child: Column(
-        children: [
-          Spacer(flex: 1,),
-          Expanded(
-            flex: 5,
-            child: InkWell(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image.asset(
-                    bg,
-                    fit: BoxFit.fitWidth,
-                  ),
-                  questionText(str),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget answerCard(String audio, String bg, String img, double w, double h) {
-    return SizedBox(
-      width: w * 0.50,
-      height: h * 0.50,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          SizedBox(
-            width: w * 0.25,
-            height: h * 0.30,
-            child: Image.asset(
-              bg,
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-          Center(
-            child: SizedBox(
-              width: w * 0.20,
-              height: h * 0.25,
-              child: SvgPicture.asset(
-                img,
+  Widget answerBtn(double w, double h, String str, String bg, bool ans) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) => ShowAnswerView(isAnswerCorrect: ans),
+        );
+      },
+      child: SizedBox(
+        width: w * 0.25,
+        height: h * 0.15,
+        child: InkWell(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SvgPicture.asset(
+                bg,
                 fit: BoxFit.fitHeight,
               ),
-            ),
+              questionText(str),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
-
-
 }

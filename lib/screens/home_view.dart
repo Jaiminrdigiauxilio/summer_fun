@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:summer_fun/screens/game_views/game_fun.dart';
 import 'package:summer_fun/screens/game_views/level_dialog.dart';
 import 'package:summer_fun/screens/keyboard_view.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
@@ -59,21 +58,30 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_1.svg",
                       "Animals",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_2.svg",
                       "Birds",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_3.svg",
                       "Logos",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                   ],
                 ),
@@ -88,7 +96,10 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_9.svg",
                       "Cartoons",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                     menuBtn(
                       w,
@@ -98,20 +109,27 @@ class HomeView extends StatelessWidget {
                       () {
                         showLevelDialog(context);
                       },
+                      false,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_1.svg",
                       "Flowers",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_4.svg",
                       "insects",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      false,
                     ),
                   ],
                 ),
@@ -126,21 +144,30 @@ class HomeView extends StatelessWidget {
                       h,
                       "assets/icons/btn_4.svg",
                       "Vegetables",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      false,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_7.svg",
                       "SuperHeroes",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                     menuBtn(
                       w,
                       h,
                       "assets/icons/btn_11.svg",
                       "Flags",
-                      () {showLevelDialog(context);},
+                      () {
+                        showLevelDialog(context);
+                      },
+                      true,
                     ),
                   ],
                 ),
@@ -193,9 +220,16 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget menuBtn(double w, double h, String icon, String title,
-      VoidCallback voidCallback) {
+  Widget menuBtn(
+    double w,
+    double h,
+    String icon,
+    String title,
+    VoidCallback voidCallback,
+    bool isBtnSymmetrical,
+  ) {
     return InkWell(
+      onTap: voidCallback,
       child: SizedBox(
         width: w / 5,
         height: h / 6,
@@ -204,35 +238,32 @@ class HomeView extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon,
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.fitHeight,
             ),
-            Text(
-              title,
-              style: TextStyle(
-                fontFamily: "PlaypenSans",
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 21,
-              ),
+            Column(
+              children: [
+                Spacer(),
+                Transform.rotate(
+                  angle: isBtnSymmetrical ? 0.0 : -0.1,
+                  child: Center(
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "PlaypenSans",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 22,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(flex: 2,),
+              ],
             ),
           ],
         ),
       ),
-      onTap: voidCallback,
     );
   }
 }
-
-// JsonData = [
-//   {
-//     "category": "Fruit",
-//     "Questions": [
-//       {"easy": "image", "option_1":"text", "option_2":"text", "option_3":"text", "option_4":"text", "correct_option":"text", },
-//       {"medium": "tex", "option_1":"image", "option_2":"image", "option_3":"image", "option_4":"image","correct_option":"image",},
-//       {"hard": "title", "option_1":"image", "option_2":"image", "option_3":"image", "option_4":"image","correct_option":"image",},
-//     ],
-//   },
-//   {...},
-//   {...},
-//   {...},
-// ];

@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:summer_fun/screens/home_view.dart';
-import 'package:summer_fun/utilities/app_navigation.dart';
+import 'package:summer_fun/services/text_to_speech.dart';
 
+import '../../utilities/app_navigation.dart';
+import '../home_view.dart';
+//    Fun Game
 class FunGameView extends StatefulWidget {
   const FunGameView({super.key});
 
@@ -13,6 +15,8 @@ class FunGameView extends StatefulWidget {
 }
 
 class _FunGameViewState extends State<FunGameView> {
+  bool isAnswerSelected = false;
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -65,78 +69,66 @@ class _FunGameViewState extends State<FunGameView> {
               },
             ),
           ),
-          // question display
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Align(
-              alignment: Alignment.topCenter,
+          Align(
+            alignment: Alignment.center,
+            child: Column(
+
+              children: [
+                Spacer(flex: 1,),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    children: [
+                      audioCard("Lemon", "assets/icons/abg_1.png",
+                        "assets/icons/lemon.svg", w, h,),
+                      audioCard("corn", "assets/icons/abg_2.png",
+                        "assets/icons/corn.svg", w, h,),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    children: [
+                      audioCard("Apple", "assets/icons/abg_3.png",
+                        "assets/icons/apple.svg", w, h,),
+                      audioCard("Lemon", "assets/icons/abg_4.png",
+                          "assets/icons/lemon.svg", w, h,),
+                    ],
+                  ),
+                ),
+                Spacer(flex: 1,),
+              ],
+            ),
+          ),
+          Positioned(
+            top: h * 0.40,
+            right: 10,
+            child: isAnswerSelected ? InkWell(
               child: SizedBox(
-                width: w * 0.50,
-                height: h * 0.60,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    SizedBox(
-                      width: w * 0.30,
-                      height: h * 0.40,
-                      child: SvgPicture.asset(
-                        "assets/icons/que_bg.svg",
-                        fit: BoxFit.fitHeight,
-                      ),
-                    ),
-                    Center(
-                      child: SizedBox(
-                        width: w * 0.30,
-                        height: h * 0.30,
-                        child: SvgPicture.asset(
-                          "assets/icons/apple.svg",
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                    ),
-                  ],
+                width: 60,
+                height:60,
+                child: Image.asset(
+                  "assets/icons/next_icon.png",
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              onTap: () {
+                // AppNavigation.navigateBack(context);
+              },
+            ): Opacity(
+              opacity: 0.2,
+              child: SizedBox(
+                width: 60,
+                height:60,
+                child: Image.asset(
+                  "assets/icons/next_icon.png",
+                  fit: BoxFit.fitHeight,
                 ),
               ),
             ),
           ),
-          // option buttons
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Spacer(flex: 4,),
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Expanded(flex: 2, child: answerBtn(w,h,"Apple","assets/icons/rect_1.svg")),
-                      Spacer(flex: 1,),
-                      Expanded(flex: 2, child: answerBtn(w,h,"banana","assets/icons/rect_2.svg")),
-                    ],
-                  ),
-                ),
-
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Expanded(flex: 2, child: answerBtn(w,h,"Guava","assets/icons/rect_3.svg")),
-                      Spacer(flex: 1,),
-                      Expanded(flex: 2, child: answerBtn(w,h,"Grapes","assets/icons/rect_4.svg")),
-                    ],
-                  ),
-                ),
-                Spacer(flex: 2,),
-              ],
-            ),
-          ),
-          // Ad banner placeholder
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -144,49 +136,41 @@ class _FunGameViewState extends State<FunGameView> {
               width: w,
               height: 50,
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
-  Widget questionText(String str) {
-    return Text(
-      str,
-      style: TextStyle(
-        shadows: <Shadow>[
-          Shadow(
-            offset: Offset(2.0, 2.0),
-            blurRadius: 3.0,
-            color: Color.fromARGB(125, 0, 0, 0),
-          ),
-          Shadow(
-            offset: Offset(2.0, 2.0),
-            blurRadius: 2.0,
-            color: Color.fromARGB(125, 0, 0, 255),
-          ),
-        ],
-        fontFamily: "PlaypenSans",
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        fontSize: 21,
-      ),
-    );
-  }
-
-  Widget answerBtn(double w, double h, String str, String bg) {
-    return SizedBox(
-      width: w * 0.25,
-      height: h * 0.15,
-      child: InkWell(
+  Widget audioCard(String audio, String bg, String img, double w, double h) {
+    return GestureDetector(
+      onTap: () {
+        EnableTTS.speakWord(audio);
+      },
+      child: SizedBox(
+        width: w * 0.50,
+        height: h * 0.50,
         child: Stack(
           alignment: Alignment.center,
           children: [
-            SvgPicture.asset(
-              bg,
-              fit: BoxFit.fitHeight,
+            SizedBox(
+              width: w * 0.30,
+              height: h * 0.35,
+              child: Image.asset(
+                bg,
+                fit: BoxFit.fill,
+              ),
             ),
-            questionText(str),
+            Center(
+              child: SizedBox(
+                width: w * 0.20,
+                height: h * 0.30,
+                child: SvgPicture.asset(
+                  img,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
           ],
         ),
       ),
