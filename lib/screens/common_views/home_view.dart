@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:summer_fun/screens/game_views/level_dialog.dart';
+import 'package:summer_fun/widgets/level_dialog.dart';
 import 'package:summer_fun/screens/game_views/keyboard_view.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
+import 'package:summer_fun/widgets/menu_dialog.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -40,6 +41,10 @@ class HomeView extends StatelessWidget {
               ),
               onTap: () {
                 debugPrint("I tapped");
+                showDialog(
+                  context: context,
+                  builder: (context) => IMenuDialog(),
+                );
               },
             ),
           ),
@@ -258,7 +263,9 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(flex: 2,),
+                Spacer(
+                  flex: 2,
+                ),
               ],
             ),
           ],

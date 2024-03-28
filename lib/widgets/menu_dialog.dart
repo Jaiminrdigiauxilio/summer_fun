@@ -39,8 +39,8 @@ class IMenuDialog extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       menuButton(context, w, ProfileView(), "My Profile"),
-                      menuButton(context, w, MoreAppsView(), "More Apps!"),
-                      menuButton(context, w, AboutUsView(), "About Developer"),
+                      menuButton(context, w, MoreAppsView(), "More Apps"),
+                      menuButton(context, w, AboutUsView(), "About Us"),
                     ],
                   )
                 ],
@@ -61,7 +61,6 @@ class IMenuDialog extends StatelessWidget {
         onTap: () {
           AppNavigation.navigateBack(context);
           AppNavigation.navigateTo(context, screen);
-          debugPrint("tapped -1");
         },
         child: Container(
           decoration: BoxDecoration(
@@ -82,7 +81,7 @@ class IMenuDialog extends StatelessWidget {
                     fontFamily: "PlaypenSans",
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 21,
+                    fontSize: 19,
                   ),
                 ),
                 Spacer(

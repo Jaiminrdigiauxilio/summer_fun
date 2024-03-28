@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -16,6 +18,7 @@ class EasyGameView extends StatefulWidget {
 }
 
 class _EasyGameViewState extends State<EasyGameView> {
+  int currentQueIndex = 0;
   bool isAnswerSelected = false;
   bool isDataLoaded = false;
   List<Map<String, dynamic>> jsonData = [];
@@ -24,8 +27,6 @@ class _EasyGameViewState extends State<EasyGameView> {
   void initState() {
     super.initState();
     loadData(jsonData);
-
-    // loadData();
   }
 
   @override
@@ -50,8 +51,7 @@ class _EasyGameViewState extends State<EasyGameView> {
                 Positioned(
                   top: 10.0,
                   right: 10.0,
-                  child: isAnswerSelected
-                      ? GestureDetector(
+                  child: GestureDetector(
                           child: SizedBox(
                             width: 60,
                             height: 60,
@@ -61,19 +61,15 @@ class _EasyGameViewState extends State<EasyGameView> {
                             ),
                           ),
                           onTap: () {
+                            setState(() {
+                              isDataLoaded = false;
+                              shuffleQue();
+                              isDataLoaded = true;
+
+                            });
+
                             // AppNavigation.navigateBack(context);
                           },
-                        )
-                      : Opacity(
-                          opacity: 0.2,
-                          child: SizedBox(
-                            width: 60,
-                            height: 60,
-                            child: Image.asset(
-                              "assets/icons/next_icon.png",
-                              fit: BoxFit.fitHeight,
-                            ),
-                          ),
                         ),
                 ),
                 Positioned(
@@ -126,8 +122,8 @@ class _EasyGameViewState extends State<EasyGameView> {
                                   child: SizedBox(
                                     width: w * 0.30,
                                     height: h * 0.30,
-                                    child: SvgPicture.asset(
-                                      "assets/icons/apple.svg",
+                                    child: Image.asset(
+                                      "${jsonData[currentQueIndex]["easy"]["question"]}",
                                       fit: BoxFit.fitHeight,
                                     ),
                                   ),
@@ -164,9 +160,9 @@ class _EasyGameViewState extends State<EasyGameView> {
                               child: answerBtn(
                                 w,
                                 h,
-                                "Apple",
+                                "${jsonData[currentQueIndex]["easy"]["option_1"]}",
                                 "assets/icons/rect_1.svg",
-                                true,
+                                "${jsonData[currentQueIndex]["easy"]["correct_option"]}",
                               ),
                             ),
                             Spacer(
@@ -177,9 +173,9 @@ class _EasyGameViewState extends State<EasyGameView> {
                               child: answerBtn(
                                 w,
                                 h,
-                                "banana",
+                                "${jsonData[currentQueIndex]["easy"]["option_2"]}",
                                 "assets/icons/rect_2.svg",
-                                false,
+                                "${jsonData[currentQueIndex]["easy"]["correct_option"]}",
                               ),
                             ),
                           ],
@@ -196,9 +192,9 @@ class _EasyGameViewState extends State<EasyGameView> {
                               child: answerBtn(
                                 w,
                                 h,
-                                "Guava",
+                                "${jsonData[currentQueIndex]["easy"]["option_3"]}",
                                 "assets/icons/rect_3.svg",
-                                false,
+                                "${jsonData[currentQueIndex]["easy"]["correct_option"]}",
                               ),
                             ),
                             Spacer(
@@ -209,9 +205,9 @@ class _EasyGameViewState extends State<EasyGameView> {
                               child: answerBtn(
                                 w,
                                 h,
-                                "Grapes",
+                                "${jsonData[currentQueIndex]["easy"]["option_4"]}",
                                 "assets/icons/rect_4.svg",
-                                false,
+                                "${jsonData[currentQueIndex]["easy"]["correct_option"]}",
                               ),
                             ),
                           ],
@@ -252,6 +248,7 @@ class _EasyGameViewState extends State<EasyGameView> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircularProgressIndicator(
+                      color: CupertinoColors.systemOrange,
                       backgroundColor: Colors.white70,
                       strokeWidth: 3,
                     ),
@@ -295,9 +292,17 @@ class _EasyGameViewState extends State<EasyGameView> {
     );
   }
 
-  Widget answerBtn(double w, double h, String str, String bg, bool ans) {
+  Widget answerBtn(double w, double h, String str, String bg, String ansText) {
+    bool ans = false;
+
+    if(str.toLowerCase().contains(ansText.toLowerCase())) {
+      ans = true;
+    } else {
+      ans = false;
+    }
     return GestureDetector(
       onTap: () {
+        isAnswerSelected = true;
         showDialog(
           context: context,
           builder: (context) => ShowAnswerView(isAnswerCorrect: ans),
@@ -341,9 +346,24 @@ class _EasyGameViewState extends State<EasyGameView> {
     debugPrint("-/-/-/-/-/data: ${data.length}");
     debugPrint("-/-/-/-/-/JsonData: ${jsonData.length}");
   }
+
+  void shuffleQue() {
+    var random = Random();
+    int minRange = 0;
+    int maxRange = jsonData.length;
+    int randomInt = minRange + random.nextInt(maxRange - minRange);
+    setState(() {
+      currentQueIndex = randomInt;
+      // isDataLoaded = true;
+      isAnswerSelected = false;
+    });
+
+
+
+  }
 }
 
-//  monkey
+//  monkey asset left
 // SizedBox(
 //   width: w * 0.05,
 //   height: w * 0.05,
