@@ -8,6 +8,7 @@ import 'package:summer_fun/widgets/check_answer_view.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
 
 import '../../services/read_data.dart';
+import '../../widgets/app_bg.dart';
 
 //    Easy Game
 class EasyGameView extends StatefulWidget {
@@ -38,16 +39,7 @@ class _EasyGameViewState extends State<EasyGameView> {
       body: isDataLoaded
           ? Stack(
               children: [
-                Container(
-                  width: w,
-                  child: Opacity(
-                    opacity: 0.5,
-                    child: Image.asset(
-                      "assets/bg/app_bg.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                AppBackground(),
                 Positioned(
                   top: 10.0,
                   right: 10.0,
@@ -77,8 +69,8 @@ class _EasyGameViewState extends State<EasyGameView> {
                   left: 1.0,
                   child: GestureDetector(
                     child: SizedBox(
-                      width: w / 8,
-                      height: h / 8,
+                      width: 80,
+                      height: 60,
                       child: SvgPicture.asset(
                         "assets/icons/back_icon.svg",
                         fit: BoxFit.fitHeight,
@@ -233,16 +225,7 @@ class _EasyGameViewState extends State<EasyGameView> {
           : Stack(
               alignment: Alignment.center,
               children: [
-                Container(
-                  width: w,
-                  child: Opacity(
-                    opacity: 0.5,
-                    child: Image.asset(
-                      "assets/bg/app_bg.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                AppBackground(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

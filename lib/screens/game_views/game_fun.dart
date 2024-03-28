@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:summer_fun/services/text_to_speech.dart';
 import '../../utilities/app_navigation.dart';
+import '../../widgets/app_bg.dart';
 
 //    Fun Game
 class FunGameView extends StatefulWidget {
@@ -24,16 +25,7 @@ class _FunGameViewState extends State<FunGameView> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Container(
-            width: w,
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                "assets/bg/app_bg.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          AppBackground(),
           Positioned(
             top: 10.0,
             right: 10.0,

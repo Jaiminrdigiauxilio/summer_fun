@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:summer_fun/widgets/level_dialog.dart';
-import 'package:summer_fun/screens/game_views/keyboard_view.dart';
-import 'package:summer_fun/utilities/app_navigation.dart';
 import 'package:summer_fun/widgets/menu_dialog.dart';
+
+import '../../widgets/app_bg.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -16,17 +16,7 @@ class HomeView extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Container(
-            width: w,
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                "assets/bg/app_bg.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-
+          AppBackground(),
           Positioned(
             bottom: 10.0,
             left: 5.0,

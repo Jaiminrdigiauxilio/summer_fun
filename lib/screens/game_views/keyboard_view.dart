@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../widgets/app_bg.dart';
+
 class KeyboardView extends StatefulWidget {
   const KeyboardView({super.key});
 
@@ -17,16 +19,7 @@ class _KeyboardViewState extends State<KeyboardView> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Container(
-            width: w,
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                "assets/bg/app_bg.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          AppBackground(),
           Positioned(
             top: 10.0,
             left: 1.0,

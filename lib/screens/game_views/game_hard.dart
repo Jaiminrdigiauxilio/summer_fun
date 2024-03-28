@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../utilities/app_navigation.dart';
+import '../../widgets/app_bg.dart';
 import '../../widgets/check_answer_view.dart';
 
 //    Hard Game
@@ -22,16 +23,7 @@ class _HardGameViewState extends State<HardGameView> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Container(
-            width: w,
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                "assets/bg/app_bg.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          AppBackground(),
           Positioned(
             top: 10.0,
             right: 10.0,
