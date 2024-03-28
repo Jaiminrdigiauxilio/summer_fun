@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:summer_fun/screens/game_views/level_dialog.dart';
-import 'package:summer_fun/screens/keyboard_view.dart';
+import 'package:summer_fun/screens/game_views/keyboard_view.dart';
 import 'package:summer_fun/utilities/app_navigation.dart';
 
 class HomeView extends StatelessWidget {
@@ -27,19 +27,19 @@ class HomeView extends StatelessWidget {
           ),
 
           Positioned(
-            top: 10.0,
-            right: 1.0,
-            child: InkWell(
+            bottom: 10.0,
+            left: 5.0,
+            child: GestureDetector(
               child: SizedBox(
-                width: w / 8,
-                height: h / 8,
-                child: SvgPicture.asset(
-                  "assets/icons/home_icon.svg",
+                width: w * 0.10,
+                height: h * 0.12,
+                child: Image.asset(
+                  "assets/icons/i.png",
                   fit: BoxFit.fitHeight,
                 ),
               ),
               onTap: () {
-                AppNavigation.navigateTo(context, const KeyboardView());
+                debugPrint("I tapped");
               },
             ),
           ),
@@ -228,7 +228,7 @@ class HomeView extends StatelessWidget {
     VoidCallback voidCallback,
     bool isBtnSymmetrical,
   ) {
-    return InkWell(
+    return GestureDetector(
       onTap: voidCallback,
       child: SizedBox(
         width: w / 5,

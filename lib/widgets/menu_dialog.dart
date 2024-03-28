@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:summer_fun/screens/game_views/game_easy.dart';
-import 'package:summer_fun/screens/game_views/game_fun.dart';
-import 'package:summer_fun/screens/game_views/game_hard.dart';
-import 'package:summer_fun/screens/game_views/keyboard_view.dart';
-import 'package:summer_fun/utilities/app_navigation.dart';
 
-class LevelDialogView extends StatelessWidget {
-  const LevelDialogView({super.key});
+import '../screens/common_views/about_us_view.dart';
+import '../screens/common_views/more_apps_view.dart';
+import '../screens/common_views/profile_view.dart';
+import '../utilities/app_navigation.dart';
+
+
+class IMenuDialog extends StatelessWidget {
+  const IMenuDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class LevelDialogView extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      levelButton(context, w, FunGameView(), "Fun"),
-                      levelButton(context, w, EasyGameView(), "Easy"),
-                      levelButton(context, w, HardGameView(), "Hard"),
-                      levelButton(context, w, KeyboardView(), "Keys"),
+                      menuButton(context, w, ProfileView(), "My Profile"),
+                      menuButton(context, w, MoreAppsView(), "More Apps!"),
+                      menuButton(context, w, AboutUsView(), "About Developer"),
                     ],
                   )
                 ],
@@ -53,7 +52,7 @@ class LevelDialogView extends StatelessWidget {
     );
   }
 
-  Widget levelButton(
+  Widget menuButton(
       BuildContext context, double w, Widget screen, String text) {
     return SizedBox(
       width: (w * 0.30) - 100,
@@ -97,3 +96,5 @@ class LevelDialogView extends StatelessWidget {
     );
   }
 }
+
+

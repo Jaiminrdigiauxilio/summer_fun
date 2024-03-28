@@ -43,6 +43,8 @@ flutter:
     - assets/icons/
     - assets/icons/nums/
     - assets/icons/abc/
+    - assets/quiz/img/
+    - lib/data/fruit.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

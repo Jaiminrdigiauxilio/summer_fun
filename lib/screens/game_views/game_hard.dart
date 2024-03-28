@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../utilities/app_navigation.dart';
-import '../home_view.dart';
-import 'check_answer_view.dart';
+import '../../widgets/check_answer_view.dart';
+
 //    Hard Game
 class HardGameView extends StatefulWidget {
   const HardGameView({super.key});
@@ -35,25 +34,35 @@ class _HardGameViewState extends State<HardGameView> {
           ),
           Positioned(
             top: 10.0,
-            right: 1.0,
-            child: InkWell(
+            right: 10.0,
+            child: isAnswerSelected ? InkWell(
               child: SizedBox(
-                width: w / 8,
-                height: h / 8,
-                child: SvgPicture.asset(
-                  "assets/icons/home_icon.svg",
+                width: 60,
+                height:60,
+                child: Image.asset(
+                  "assets/icons/next_icon.png",
                   fit: BoxFit.fitHeight,
                 ),
               ),
               onTap: () {
-                AppNavigation.navigateBackTo(context, HomeView());
+                // AppNavigation.navigateBack(context);
               },
+            ): Opacity(
+              opacity: 0.2,
+              child: SizedBox(
+                width: 60,
+                height:60,
+                child: Image.asset(
+                  "assets/icons/next_icon.png",
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
             ),
           ),
           Positioned(
             top: 10.0,
             left: 1.0,
-            child: InkWell(
+            child: GestureDetector(
               child: SizedBox(
                 width: w / 8,
                 height: h / 8,
@@ -107,32 +116,6 @@ class _HardGameViewState extends State<HardGameView> {
                 Spacer(flex: 1,),
               ],
             ),
-          ),Positioned(
-            top: h * 0.40,
-            right: 10,
-            child: isAnswerSelected ? InkWell(
-              child: SizedBox(
-                width: 60,
-                height:60,
-                child: Image.asset(
-                  "assets/icons/next_icon.png",
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-              onTap: () {
-                // AppNavigation.navigateBack(context);
-              },
-            ): Opacity(
-              opacity: 0.2,
-              child: SizedBox(
-                width: 60,
-                height:60,
-                child: Image.asset(
-                  "assets/icons/next_icon.png",
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
           ),
 
 
@@ -183,7 +166,7 @@ class _HardGameViewState extends State<HardGameView> {
           Spacer(flex: 1,),
           Expanded(
             flex: 5,
-            child: InkWell(
+            child: GestureDetector(
               child: Stack(
                 alignment: Alignment.center,
                 children: [

@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:summer_fun/services/text_to_speech.dart';
-
 import '../../utilities/app_navigation.dart';
-import '../home_view.dart';
+
 //    Fun Game
 class FunGameView extends StatefulWidget {
   const FunGameView({super.key});
@@ -37,25 +36,25 @@ class _FunGameViewState extends State<FunGameView> {
           ),
           Positioned(
             top: 10.0,
-            right: 1.0,
-            child: InkWell(
+            right: 10.0,
+            child: GestureDetector(
               child: SizedBox(
-                width: w / 8,
-                height: h / 8,
-                child: SvgPicture.asset(
-                  "assets/icons/home_icon.svg",
+                width: 60,
+                height:60,
+                child: Image.asset(
+                  "assets/icons/refresh.png",
                   fit: BoxFit.fitHeight,
                 ),
               ),
               onTap: () {
-                AppNavigation.navigateBackTo(context, HomeView());
+                // AppNavigation.navigateBack(context);
               },
-            ),
+            )
           ),
           Positioned(
             top: 10.0,
             left: 1.0,
-            child: InkWell(
+            child: GestureDetector(
               child: SizedBox(
                 width: w / 8,
                 height: h / 8,
@@ -102,33 +101,7 @@ class _FunGameViewState extends State<FunGameView> {
               ],
             ),
           ),
-          Positioned(
-            top: h * 0.40,
-            right: 10,
-            child: isAnswerSelected ? InkWell(
-              child: SizedBox(
-                width: 60,
-                height:60,
-                child: Image.asset(
-                  "assets/icons/next_icon.png",
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-              onTap: () {
-                // AppNavigation.navigateBack(context);
-              },
-            ): Opacity(
-              opacity: 0.2,
-              child: SizedBox(
-                width: 60,
-                height:60,
-                child: Image.asset(
-                  "assets/icons/next_icon.png",
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-          ),
+
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(

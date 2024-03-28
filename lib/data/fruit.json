@@ -1,0 +1,214 @@
+[
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Yuzu.jfif",
+      "option_1": "Apple",
+      "option_2": "Lemon",
+      "option_3": "Yuzu",
+      "option_4": "Watermelon",
+      "correct_option": "Yuzu"
+    },
+
+    "hard": {
+      "question": "Yuzu",
+      "option_1": "assets/quiz/img/Apple.jfif",
+      "option_2": "assets/quiz/img/Lemon.jfif",
+      "option_3": "assets/quiz/img/Yuzu.jfif",
+      "option_4": "assets/quiz/img/Watermelon.jfif",
+      "correct_option": "option_3"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Acai_Berry.jfif",
+      "option_1": "Apple",
+      "option_2": "Ackee",
+      "option_3": "Acai_Beery",
+      "option_4": "Apricot",
+      "correct_option": "Acai_Beery"
+    },
+
+    "hard": {
+      "question": "Acai_Beery",
+      "option_1": "assets/quiz/img/Acai_Beery.jfif",
+      "option_2": "assets/quiz/img/Ackee.jfif",
+      "option_3": "assets/quiz/img/Apple.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_1"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Ackee.jfif",
+      "option_1": "Ackee",
+      "option_2": "Asian_Pear",
+      "option_3": "Acai_Beery",
+      "option_4": "Apricot",
+      "correct_option": "Ackee"
+    },
+
+    "hard": {
+      "question": "Ackee",
+      "option_1": "assets/quiz/img/Acai_Beery.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Ackee.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_3"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Apple.jfif",
+      "option_1": "Apple",
+      "option_2": "Asian_Pear",
+      "option_3": "Watermelon",
+      "option_4": "Lemon",
+      "correct_option": "Apple"
+    },
+
+    "hard": {
+      "question": "Apple",
+      "option_1": "assets/quiz/img/Lemon.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Watermelon.jfif",
+      "option_4": "assets/quiz/img/Apple.jfif",
+      "correct_option": "option_4"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Apricot.jfif",
+      "option_1": "Ackee",
+      "option_2": "Asian_Pear",
+      "option_3": "Apple",
+      "option_4": "Apricot",
+      "correct_option": "Apricot"
+    },
+
+    "hard": {
+      "question": "Apricot",
+      "option_1": "assets/quiz/img/Ackee.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Apple.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_4"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Asian_Pear.jfif",
+      "option_1": "Asian_Pear",
+      "option_2": "Apple",
+      "option_3": "Watermelon",
+      "option_4": "Apricot",
+      "correct_option": "Asian_Pear"
+    },
+
+    "hard": {
+      "question": "Asian_pear",
+      "option_1": "assets/quiz/img/Apple.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Watermelon.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_2"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Avocado.jfif",
+      "option_1": "Avocado",
+      "option_2": "Lemon",
+      "option_3": "Acai_Beery",
+      "option_4": "Apricot",
+      "correct_option": "Avocado"
+    },
+
+    "hard": {
+      "question": "Avocado",
+      "option_1": "assets/quiz/img/Avocado.jfif",
+      "option_2": "assets/quiz/img/Asian_Beery.jfif",
+      "option_3": "assets/quiz/img/Lemon.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_1"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Bael_Fruit.jfif",
+      "option_1": "Ackee",
+      "option_2": "Bael_Fruit",
+      "option_3": "Acai_Beery",
+      "option_4": "Apricot",
+      "correct_option": "Ackee"
+    },
+
+    "hard": {
+      "question": "Ackee",
+      "option_1": "assets/quiz/img/Acai_Beery.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Ackee.jfif",
+      "option_4": "assets/quiz/img/Apricot.jfif",
+      "correct_option": "option_3"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Banana.jfif",
+      "option_1": "Banana",
+      "option_2": "Asian_Pear",
+      "option_3": "Apple",
+      "option_4": "Watermelon",
+      "correct_option": "Banana"
+    },
+
+    "hard": {
+      "question": "Banana",
+      "option_1": "assets/quiz/img/Banana.jfif",
+      "option_2": "assets/quiz/img/Asian_Pear.jfif",
+      "option_3": "assets/quiz/img/Apple.jfif",
+      "option_4": "assets/quiz/img/Watermelon.jfif",
+      "correct_option": "option_1"
+    }
+  },
+  {
+    "category": "fruit",
+
+    "easy": {
+      "question": "assets/quiz/img/Black_Currant.jfif",
+      "option_1": "Apricot",
+      "option_2": "Black_Currant",
+      "option_3": "Lemon",
+      "option_4": "Avocado",
+      "correct_option": "Black_Currant"
+    },
+
+    "hard": {
+      "question": "Black_Currant",
+      "option_1": "assets/quiz/img/Apricot.jfif",
+      "option_2": "assets/quiz/img/Black_Currant.jfif",
+      "option_3": "assets/quiz/img/Lemon.jfif",
+      "option_4": "assets/quiz/img/Avocado.jfif",
+      "correct_option": "option_2"
+    }
+  }
+
+
+  ]

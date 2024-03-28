@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:summer_fun/screens/splash_view.dart';
+import 'package:summer_fun/screens/common_views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
